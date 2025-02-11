@@ -1,0 +1,30 @@
+import time
+import os
+
+def clear_screen():
+    """Clear the console screen."""
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def digital_clock():
+    """Display a digital clock that updates every second."""
+    try:
+        while True:
+            # Get the current time
+            current_time = time.strftime("%H:%M:%S")
+            
+            # Clear the screen and display the time
+            clear_screen()
+            print("Digital Clock")
+            print("-------------")
+            print(f"  {current_time}  ")
+            print("-------------")
+            print("Press Ctrl+C to stop.")
+            
+            # Wait for 1 second before updating
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("\nClock stopped.")
+
+# Run the digital clock
+if __name__ == "__main__":
+    digital_clock()
